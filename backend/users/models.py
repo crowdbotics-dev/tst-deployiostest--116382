@@ -19,5 +19,6 @@ class User(AbstractUser):
     everything that relates with an `User` is represented by this model.
     """
     name = models.CharField(null=True,blank=True,max_length=255,)
+    rel_javed_1_n = models.ForeignKey("home.Javed",blank=True,null=True,on_delete=models.CASCADE,related_name="user_rel_javed_1_n",)
     def get_absolute_url(self):
         return reverse('users:detail', kwargs={'username': self.username})
